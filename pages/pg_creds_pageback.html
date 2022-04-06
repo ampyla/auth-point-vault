@@ -1,0 +1,75 @@
+{{define  "pg_creds_page"}}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>pg_distribution</title>
+        <link rel="stylesheet" href="../static/css/Skeleton.css">
+        <link rel="stylesheet" href="./css/Skeleton.css">
+        <script>
+            function myFunction() {
+                /* Get the text field */
+                var copyText = document.getElementById("copyInput");
+
+                /* Select the text field */
+                copyText.select();
+
+                /* Copy the text inside the text field */
+                document.execCommand("copy");
+
+                /* Alert the copied text */
+                alert("Copied the text: " + copyText.value);
+            }
+        </script>
+    </head>
+    <body>
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-2 col-xs-offset-4">
+                    <img class="img-responsive" src="./img/logo.svg" alt="logo">
+                </div>
+                <div class="col-xs-2">
+                    <h4><b>Cred page</b></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+                <form class="form-group" method="post" action="/logout">
+                    <label>User: {{ .}}</label>
+                    <button class="btn btn-xs btn-width btn-default pull-right" type="submit">Logout</button>
+                </form>
+                <form class="form-group" method="get" action="/select">
+                    <button class="btn btn-xs btn-width btn-default pull-right" type="submit">Back</button>
+                </form>
+            <div style="margin-bottom: 20px;">
+                <label>Login:</label>
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <div class="form-control input-xs">hui</div>
+                    <input class="btn btn-xs btn-width btn-success" type='button' value="Copy">
+                </div>
+            </div>
+                <div style="margin-bottom: 20px;">
+                    <label>Password:</label>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <div class="form-control input-xs" >hui</div>
+                        <input onclick="myFunction()" class="btn btn-xs btn-width btn-success" id="copyInput" type='button' value="Copy">
+                    </div>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label>Url:</label>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <div class="form-control input-xs">hui</div>
+                        <input class="btn btn-xs btn-width btn-success" type='button' value="Copy">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>
+{{end}}

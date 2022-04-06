@@ -1,0 +1,80 @@
+{{define  "select"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select</title>
+    <link rel="stylesheet" href="./css/Skeleton.css">
+</head>
+<body>
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2 col-xs-offset-4">
+                <img class="img-responsive" src="./img/logo.svg" alt="logo">
+            </div>
+            <div class="col-xs-2">
+                <h4><b>Select type auth</b></h4>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-4">
+            <div class="list-group-item flex-layout-horizontal">
+                <div class="flex-layout-grower">Vault OTP auth</div>
+                <a class="btn btn-sm btn-default btn-width-sm" href="/otp">OTP</a>
+            </div>
+            <div class="list-group-item flex-layout-horizontal">
+                <div class="flex-layout-grower">Vault CA</div>
+                <a class="btn btn-sm btn-default btn-width-sm" href="/ca">CA</a>
+            </div>
+            <div class="list-group-item flex-layout-horizontal">
+                <div class="flex-layout-grower">Create user host</div>
+                <a class="btn btn-sm btn-default btn-width-sm" href="/userhost">Create User Host</a>
+            </div>
+            <div class="list-group-item flex-layout-horizontal">
+                <div class="flex-layout-grower">Postgres creds</div>
+                <a class="btn btn-sm btn-default btn-width-sm" href="/form_pg">Postgres creds</a>
+            </div>
+            <div class="list-group-item flex-layout-horizontal">
+                <div class="flex-layout-grower">PG file creds</div>
+                <a class="btn btn-sm btn-default btn-width-sm" href="/form_file_pg">PG file creds</a>
+            </div>
+            {{if .Admins}}
+            <div class="list-group-item flex-layout-horizontal">
+                <div class="flex-layout-grower">User activity log</div>
+                <a class="btn btn-sm btn-default btn-width-sm" href="/logs">Logs</a>
+            </div>
+            <div class="list-group-item flex-layout-horizontal">
+                <div class="flex-layout-grower">User activity pg</div>
+                <a class="btn btn-sm btn-default btn-width-sm" href="/pg_logs">Pg Logs</a>
+            </div>
+            <div class="list-group-item flex-layout-horizontal">
+                <div class="flex-layout-grower">Delete pgdatabases</div>
+                <a class="btn btn-sm btn-default btn-width-sm" href="/form_pgdb_delete">delete pgdb</a>
+            </div>
+            <div class="list-group-item flex-layout-horizontal">
+                <div class="flex-layout-grower">Delete user all host</div>
+                <a class="btn btn-sm btn-default btn-width-sm" href="/form_delete">Delete users</a>
+            </div>
+            <div class="list-group-item flex-layout-horizontal">
+                <div class="flex-layout-grower">Add new host</div>
+                <a class="btn btn-sm btn-default btn-width-sm" href="/form_distribution">Add host</a>
+            </div>
+            <div class="list-group-item flex-layout-horizontal">
+                <div class="flex-layout-grower">Add new pghost</div>
+                <a class="btn btn-sm btn-default btn-width-sm" href="/form_pg_distribution">Add pghost</a>
+            </div>
+            <div class="list-group-item flex-layout-horizontal">
+                <div class="flex-layout-grower">Sync all pghost</div>
+                <a class="btn btn-sm btn-default btn-width-sm" href="/pg_sync">Sync</a>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</div>
+</body>
+</html>
+{{end}}

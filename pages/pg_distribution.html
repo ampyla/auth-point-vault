@@ -1,0 +1,60 @@
+{{define  "form_pg_distribution"}}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>pg_distribution</title>
+        <link rel="stylesheet" href="./css/Skeleton.css">
+        <script>
+            function validateOnlyTextField(address_host) {
+                var str = address_host.value;
+                if(!(/^[a-zA-Z, ]+$/.test(str))){
+                    console.log('String contain number characters');
+                    str = str.substr(0,  str.length -1);
+                    address_host.value = str;
+                }
+            }
+            validateOnlyTextField(address_host)
+        </script>
+    </head>
+    <body>
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-2 col-xs-offset-4">
+                    <img class="img-responsive" src="./img/logo.svg" alt="logo">
+                </div>
+                <div class="col-xs-2">
+                    <h4><b>Create user in host</b></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+                <form class="form-group" method="post" action="/logout">
+                    <label>User: {{ .}}</label>
+                    <button class="btn btn-xs btn-width btn-default pull-right" type="submit">Logout</button>
+                </form>
+                </form>
+                <form class="form-group" method="get" action="/select">
+                    <button class="btn btn-xs btn-width btn-default pull-right" type="submit">Back</button>
+                </form>
+                <form method="post" action="/pg_distribution">
+                    <div class="from-group form-group-xs">
+                        <label>Db name:</label>
+                        <input class="form-control input-xs" type="text" name="db_name" maxlength="40" required>
+                    </div>
+                    <div class="from-group form-group-xs">
+                        <label>Host address:</label>
+                        <input class="form-control input-xs" type="text" name="address_host" maxlength="100" required>
+                    </div>
+                    <input class="btn btn-xs btn-width btn-success pull-right" type=submit value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>
+{{end}}

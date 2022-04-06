@@ -1,0 +1,47 @@
+{{define "pg_many_creds_form"}}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>pgcreds</title>
+        <link rel="stylesheet" href="./css/Skeleton.css">
+    </head>
+    <body>
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-2 col-xs-offset-4">
+                    <img class="img-responsive" src="./img/logo.svg" alt="logo">
+                </div>
+                <div class="col-xs-2">
+                    <h4><b>Create creds in postgres</b></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-group" method="post" action="/logout">
+                    <label>User: {{ .Username}}</label>
+                    <button class="btn btn-xs btn-width btn-default pull-right" type="submit">Logout</button>
+                </form>
+                <form method="post" action="/pgcheackbox">
+                    <div class="form-group form-group-xs" style="height: 50vh; border: 2px solid #ccc; overflow-y: auto; padding: 1em;">
+                        <p>Select db:</p>
+                        <!--<select style="width: 100%" type="text" name="dbname" size="8">  -->
+                            {{- range .PgActivhost}}
+                                <p>
+                                    <input type="checkbox" name="db_id" style="width: auto;" value="{{ .}}">
+                                    <label style="margin-left: 10px; font-weight: bold;">{{ .}}</label>{{end}}
+                                </p>
+                       <!-- </select>-->
+                    </div>
+                    <input class="btn btn-xs btn-width btn-success pull-right" type=submit value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>
+{{end}}

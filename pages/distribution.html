@@ -1,0 +1,58 @@
+{{define  "form_distribution"}}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>form_distribution</title>
+        <link rel="stylesheet" href="./css/Skeleton.css">
+    </head>
+    <body>
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-2 col-xs-offset-4">
+                    <img class="img-responsive" src="./img/logo.svg" alt="logo">
+                </div>
+                <div class="col-xs-2">
+                    <h4><b>Distribution</b></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+                <form class="form-group" method="post" action="/logout">
+                    <label>User: {{ .}}</label>
+                    <button class="btn btn-xs btn-width btn-default pull-right" type="submit">Logout</button>
+                </form>
+                <form class="form-group" method="get" action="/select">
+                    <button class="btn btn-xs btn-width btn-default pull-right" type="submit">Back</button>
+                </form>
+                <form method="post" action="/distribution">
+                    <div class="from-group form-group-xs">
+                        <label>Ip new host:</label>
+                        <input class="form-control input-xs" type="text" name="ip_host" maxlength="40" required>
+                    </div>
+                    <input class="btn btn-xs btn-width btn-success pull-right" type=submit value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{end}}

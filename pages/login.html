@@ -1,0 +1,36 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/Skeleton.css">
+</head>
+<body>
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2 col-xs-offset-5">
+                <img class="img-responsive" src="./img/logo.svg" alt="logo">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <form class="col-xs-4 col-xs-offset-4" method="post" action="/login">
+            <div class="from-group form-group-xs">
+                <label>Login:</label>
+                <input class="form-control input-xs" type="text" name="login" required placeholder="login">
+            </div>
+            <div class="from-group form-group-xs">
+                <label>Password:</label>
+                <input class="form-control input-xs" type="password" name="pass" required placeholder="password">
+            </div>
+            <br>
+            <div class="from-group form-group-xs flexible">
+                <input class="btn btn-xs btn-success btn-block" type="submit" value="Login">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

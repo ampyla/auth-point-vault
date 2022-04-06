@@ -1,0 +1,53 @@
+{{define  "pg_xml_creds_page"}}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>pg_distribution</title>
+        <link rel="stylesheet" href="./css/Skeleton.css">
+        <script src="./js/clipboard.min.js"> </script>
+    </head>
+    <body>
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-2 col-xs-offset-4">
+                    <img class="img-responsive" src="./img/logo.svg" alt="logo">
+                </div>
+                <div class="col-xs-2">
+                    <h4><b>Cred page</b></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <form class="form-group" method="post" action="/logout">
+                    <label>User: {{ .Username}}</label>
+                    <button class="btn btn-xs btn-width btn-default pull-right" type="submit">Logout</button>
+                </form>
+                <form class="form-group" method="get" action="/select">
+                    <button class="btn btn-xs btn-width btn-default pull-right" type="submit">Back</button>
+                </form>
+                <div>
+                    <label>Login:</label>
+                    <div style="display: flex;">
+                        <div id="foo_1" class="form-control" style="height: 200px; overflow-x: auto;">&lt;connections&gt;<br> {{  range $key, $value := . }}
+                                {{range $pass,$dbhost := $value}}
+                                    {{range $dbname,$host := $dbhost }}
+                                        &lt;connection name="{{$dbname}}" host="{{$host}}" port="6433" server="" database="{{$dbname}}" url="jdbc:postgresql://{{$host}}:6433/{{$dbname}}" user="{{$key}}" password="{{$pass}}" type="dev" /><br>
+                            {{end}}{{end}}{{end}}
+                            &lt;/connections&gt;
+                            </div>
+                        <button data-clipboard-target="#foo_1" id="copyInput" class="btn btn-xs btn-width btn-success" type='button'>Copy</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </body>
+    <script>new ClipboardJS('#copyInput');</script>
+    </html>
+{{end}}

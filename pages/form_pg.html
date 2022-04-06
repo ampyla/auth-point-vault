@@ -1,0 +1,47 @@
+{{define  "form_pg"}}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>pgcreds</title>
+        <link rel="stylesheet" href="./css/Skeleton.css">
+    </head>
+    <body>
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-2 col-xs-offset-4">
+                    <img class="img-responsive" src="./img/logo.svg" alt="logo">
+                </div>
+                <div class="col-xs-2">
+                    <h4><b>Create creds in postgres</b></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+                <form class="form-group" method="post" action="/logout">
+                    <label>User: {{ .Username}}</label>
+                    <button class="btn btn-xs btn-width btn-default pull-right" type="submit">Logout</button>
+                </form>
+                <form class="form-group" method="get" action="/select">
+                    <button class="btn btn-xs btn-width btn-default pull-right" type="submit">Back</button>
+                </form>
+                <form method="post" action="/pgcreds">
+                    <div class="from-group form-group-xs">
+                        <label>Select db:</label>
+                        <select style="width: 100%" type="text" name="dbname" size="8">
+                            {{- range .PgActivhost}}
+                            <option>{{ .}}</option>;{{end}}
+                        </select>
+                    </div>
+                    <input class="btn btn-xs btn-width btn-success pull-right" type=submit value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>
+{{end}}
